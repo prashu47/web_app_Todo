@@ -1,0 +1,134 @@
+.container{
+  margin: 0 auto;
+  width: 638px;
+}
+
+.search{
+  margin_top: 50px;
+  margin-left: 0px;
+  width: 135px;
+}
+
+.back{
+  margin-top: 44px;
+}
+
+.back a{
+  text-decoration: none;
+  color: #594d4d;
+}
+
+.todos_progress{
+ background-color: white
+}
+
+.todo_block{
+  margin-left: 16px;
+  margin-top: 20px;
+  border: 1px solid #eae2e242;
+
+}
+
+.todo_sub_block{
+  width: 600px;
+  margin-block: 20px;
+}
+
+.comment-time{
+  margin-top: 10px;
+  color: #716868;
+}
+
+.progress-bar{
+  background-color: #3fbb9c;
+  /* width: 474px; */
+}
+
+.progress{
+  width: 534px;
+  background-color: #f4f4f4;
+  text-align: center;
+}
+
+.circle{
+  float: right;
+  margin-top: -28px;
+  color: #3fbb9c;
+}
+
+.add_comment{
+  width: 634px;
+  height: 50px;
+  background-color: white;
+  border: aliceblue;
+}
+.post_comment{
+  background-color: #dfd9d945;
+  padding: 20px;
+}
+.commenter-name{
+  margin-top: 10px;
+}
+.comment_border{
+  border-bottom: 1px solid #e6d9d9;;
+}
+.cross{
+  float: inline-end;
+}
+
+#save-button{
+  margin-left: 494px;
+  margin-top: 12px;
+}
+
+.cancel-button{
+  margin-top: -30px;
+  font-size: larger;
+}
+.top-border{
+  border-bottom: 1px solid;
+  color: #f4f4f4
+}
+
+
+.share-container{
+    margin: 0 auto;
+    width: 638px;
+}
+
+/* When the checkbox is checked, add a blue background */
+.container input:checked ~ .checkmark {
+  background-color: lightgreen;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the checkmark when checked */
+.container input:checked ~ .checkmark:after {
+  display: block;
+}
+
+/* Style the checkmark/indicator */
+.container .checkmark:after {
+  left: 9px;
+  top: 5px;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+
+.users-list{
+  float: left;
+  width: 27%;
+  padding-left: 23px;
+}

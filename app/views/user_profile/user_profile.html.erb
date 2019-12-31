@@ -1,0 +1,104 @@
+
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+
+
+<link rel="stylesheet" href="https://bootswatch.com/4/simplex/bootstrap.min.css"/>
+
+
+<div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+
+                    <div class="card-body">
+                        <div class="card-title mb-4">
+                            <div class="d-flex justify-content-start">
+                                <div class="image-container">
+                                  <%= form_for(current_user, url: user_profile_update_profile_pic_path, method: :post, html: { multipart: true }) do |f| %>
+                                  <div id = "image"><%= image_tag(current_user.avatar, :class => "style_image") if current_user.avatar.attached?%></div>
+                                  <div class ="remove">  <%= link_to 'Remove', user_profile_user_profile_path,method: :delete,data: { confirm: 'Are you sure?' },:class => "article" %></div>
+                                    <div class = "avatar"><%= f.file_field :avatar %></div>
+                                    <div class = "submit"><%= f.submit("Update", class: "btn btn-primary") %></div>
+                                    <% end %>
+
+                                <div class="userData ml-3">
+                                    <h2 class="d-block" style="font-size: 1.5rem; font-weight: bold;margin-left: 253px;margin-top:-130px;">UserProfile</h2>
+                                </div>
+                                </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row" style="width:inherit">
+                            <div class="col-12">
+                                <ul class="nav nav-tabs mb-4" id="myTab" role="tablist">
+                                    <li class="nav-item">
+                                        <a class="nav-link active" id="basicInfo-tab" data-toggle="tab" href="#basicInfo" role="tab" aria-controls="basicInfo" aria-selected="true">Basic Info</a>
+                                    </li>
+
+                                </ul>
+                                <div class="tab-content ml-1" id="myTabContent">
+                                    <div class="tab-pane fade show active" id="basicInfo" role="tabpanel" aria-labelledby="basicInfo-tab">
+
+
+                                        <div class="row">
+                                            <div class="col-sm-3 col-md-2 col-5">
+                                                <label style="font-weight:bold;">Full Name</label>
+                                            </div>
+                                            <div class="col-md-8 col-6">
+                                                <%= current_user.name%>
+                                            </div>
+                                        </div>
+                                        <hr />
+
+                                        <div class="row">
+                                            <div class="col-sm-3 col-md-2 col-5">
+                                                <label style="font-weight:bold;">E-mail</label>
+                                            </div>
+                                            <div class="col-md-8 col-6">
+                                               <%= current_user.email%>
+                                            </div>
+                                        </div>
+                                        <hr />
+
+
+                                        <div class="row">
+                                            <div class="col-sm-3 col-md-2 col-5">
+                                                <label style="font-weight:bold;">Mobile</label>
+                                            </div>
+                                            <div class="col-md-8 col-6">
+                                                <%= current_user.mobile%>
+                                            </div>
+                                        </div>
+                                        <hr />
+                                        <div class="row">
+                                            <div class="col-sm-3 col-md-2 col-5">
+                                                <label style="font-weight:bold;">User name</label>
+                                            </div>
+                                            <div class="col-md-8 col-6">
+                                                 <%= current_user.user_name%>
+                                            </div>
+                                        </div>
+                                        <hr />
+
+                                        <hr />
+
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class = "edit-profile">
+                          <%= link_to "Edit profile", user_profile_edit_profile_path, method: :post, :class=> "e-p"  %>
+                          </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>

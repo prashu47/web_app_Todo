@@ -1,0 +1,11 @@
+<div class="share-block">
+  <div class="check-box-color-user-name">
+    <div class="custom-control custom-checkbox">
+      <div class="division">
+        <%=check_box_tag 'user-check', false , false, id: user.id, class: "styled-checkbox"%>
+        <label class="custom-control-label" for=<%=user.id%>><%=user.user_name%></label>
+        <br></br>
+      </div>
+    </div>
+  </div>
+</div>

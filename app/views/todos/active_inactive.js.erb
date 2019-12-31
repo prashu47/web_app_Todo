@@ -1,0 +1,3 @@
+$('#todos').html(`<% @todos.each do |todo| %><%= render 'todolist' , todo: todo %><% end %>`);
+// send_ajax();
+change_arrow();

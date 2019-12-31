@@ -1,0 +1,55 @@
+<div class="container">
+  <div class="search_box">
+    <%= text_field_tag :search , "", placeholder: "search",autofocus: true, class: "search"%>
+  </div>
+
+  <div class="addtodo">
+    <%= render 'form'%>
+  </div>
+
+  <div class="switch-field">
+    <label for="active">
+      <input type="radio" name="options" id="active" autocomplete="off" onclick="send_ajax(this.id)">
+      Active
+    </label>
+    <label for="inactive">
+      <input type="radio" name="options" id="inactive" autocomplete="off" onclick="send_ajax(this.id)">
+      Inactive
+    </label>
+  </div>
+
+  <div id="todos">
+    <% @todo.each do |todo| %>
+      <%= render 'todolist' , todo: todo %>
+    <% end %>
+  </div>
+</div>
+
+<script>
+  function send_ajax(id) {
+    $.ajax({
+      url: "/todos/active_inactive",
+      type: "POST",
+      data: {
+        status: id
+      }
+    });
+  };
+
+  function change_arrow() {
+    $('.up').show();
+    $('.down').show();
+    $('.up').first().hide();
+    $('.down').last().hide();
+  };
+  change_arrow();
+  $(".search").keyup(function () {
+    $.ajax({
+      url: '/todos/search',
+      type: 'post',
+      data: {
+        search: $(this).val()
+      }
+    });
+  });
+</script>

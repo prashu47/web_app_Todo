@@ -1,0 +1,138 @@
+.container{
+  margin: 0 auto;
+  width: 638px;
+}
+
+.search{
+  margin_top: 50px;
+  margin-left: 13px;
+  width: 135px;
+}
+
+#todos{
+  color:#9d9393;
+  margin-top: 40px;
+}
+
+
+.todo_list{
+  padding: 10px;
+  margin: 15px;
+  border: 1px solid #eae2e242;
+  background-color: white;
+  width: 601px;
+  border-style: initial;
+}
+
+.todo_list a{
+  text-decoration: none;
+  color: #9d9393;
+  cursor: -moz-zoom-out;
+}
+
+.todo_list a:hover{
+  text-decoration: underline;
+}
+
+.createdtime{
+margin-top: 15px;
+}
+
+.icon{
+   float:right;
+   color: #f4f4f4;
+   margin-top: 15px;
+
+}
+
+.material-icons {
+    font-family: 'Material Icons';
+    font-weight: normal;
+    font-style: normal;
+    font-size: 24px;
+    line-height: 1;
+    letter-spacing: normal;
+    text-transform: none;
+    display: inline-block;
+    white-space: nowrap;
+    word-wrap: normal;
+    direction: ltr;
+    -moz-font-feature-settings: 'liga';
+    -moz-osx-font-smoothing: grayscale;
+    color: #a6a0a0e8;
+}
+
+.switch-field{
+  margin-top: 25px;
+}
+.switch-field input {
+  position: absolute !important;
+  clip: rect(0, 0, 0, 0);
+  height: 1px;
+  width: 1px;
+  border: 0;
+  overflow: hidden;
+}
+
+.switch-field label {
+  font-size: 14px;
+  line-height: 1;
+  text-align: center;
+  padding: 8px 16px;
+  margin-right: -1px;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  transition: all 0.1s ease-in-out;
+}
+
+.switch-field label:hover {
+  cursor: pointer;
+}
+
+.switch-field input:checked + label {
+  // background-color: #f4f4f4;
+  box-shadow: none;
+}
+
+.switch-field label:first-of-type {
+  border-radius: 4px 0 0 4px;
+  margin-left: 16px;
+  background-color: white;
+}
+
+.addtodo{
+  margin-top: 60px;
+}
+
+.active_white{
+  background: white;
+}
+
+.switch-field label:last-of-type {
+  border-radius: 0 4px 4px 0;
+  background-color: #f4f4f4
+}
+
+.image{
+height: 93px;
+margin-left: 322px;
+}
+.button{
+  margin-bottom: 100px;
+}
+
+.mycss{
+  float: right;
+  margin-left: 20px;
+  color: #a29b9b;
+  text-decoration: none;
+}
+.mycss1{
+  float: right;
+}
+.create_todo{
+  width: 617px;
+  height: 46px;
+  margin-left: 16px;
+  margin-bottom: 40px;
+  border:3px solid #3fbb9c;
+}

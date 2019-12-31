@@ -1,0 +1,32 @@
+<div class="container">
+  <hr>
+  <div class="row">
+    <h1>Edit Profile</h1>
+
+    <hr>
+    <div class="col-md-9 personal-info">
+      <h3>Personal info</h3>
+      <%= form_with scope: :user, url: user_profile_update_profile_path, remote: true do |f| %>
+      <div class="field">
+        <%= f.label :name %><br/>
+        <%= f.text_field :name, autofocus: true, autocomplete: "Edit Name" %>
+      </div>
+
+      <div class="field">
+        <%= f.label :email %><br/>
+        <%= f.email_field :email, autofocus: true, autocomplete: "Edit email" %>
+      </div>
+
+      <div class="field">
+        <%= f.label :mobile %><br/>
+        <%= f.text_field :mobile, autofocus: true, autocomplete: "Edit mobile number" %>
+      </div>
+
+      <div class="actions">
+        <%= f.submit "Update" %>
+      </div>
+    <%end%>
+  </div>
+</div>
+</div>
+<hr>

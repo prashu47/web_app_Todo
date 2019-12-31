@@ -1,0 +1,54 @@
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+
+<div style="background-color:#41aaa2; height:725px; width:561x; border-radius:30px; text-align:center; margin:0 auto;margin-top: 77px" class="col-md-offset-4">
+  <h1 style="text-align:center; padding-top:30px; color:#ffffff;">Sign Up</h1>
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+  <%= render "devise/shared/error_messages", resource: resource %>
+
+  <div class="profile-picture" style="float:left">
+    <%= f.label :Upload_profile_picture, :style=>"margin-right: 201px;" %>
+    <%= f.file_field :avatar %>
+  </div>
+
+  <div class="col-sm-12" style="padding-top:10px;">
+    <%= f.label :name %><br/>
+    <%= f.text_field :name, autofocus: true, autocomplete: "name" %>
+  </div>
+
+  <div class="col-sm-12" style="padding-top:10px;">
+    <%= f.label :user_name %><br/>
+    <%= f.text_field :user_name, autofocus: true, autocomplete: "user_name" %>
+  </div>
+
+  <div class="col-sm-12" style="padding-top:10px;">
+    <%= f.label :email %><br/>
+    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+  </div>
+
+  <div class="col-sm-12" style="padding-top:10px;">
+    <%= f.label :mobile %><br/>
+    <%= f.text_field :mobile, autofocus: true, autocomplete: "mobile" %>
+  </div>
+
+  <div class="col-sm-12" style="padding-top:10px;">
+    <%= f.label :password %>
+    <% if @minimum_password_length %>
+      <em>(<%= @minimum_password_length %>
+        characters minimum)</em>
+    <% end %><br/>
+    <%= f.password_field :password, autocomplete: "new-password" %>
+  </div>
+
+  <div class="col-sm-12" style="padding-top:10px;">
+    <%= f.label :password_confirmation %><br/>
+    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+  </div>
+
+  <button class="col-md-4 col-md-offset-4 btn" style="background-color:#41aaa2; color:#626a69; font-size:20px; margin-top:10px;" type="button">
+    <%= f.submit "Sign up" %>
+  </button>
+<% end %>
+</div>

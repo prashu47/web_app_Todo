@@ -1,0 +1,88 @@
+// Place all the styles related to the Share controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+#overlay{
+position: static;
+display: none;
+width: 682px;
+height: 575px;
+top: 222px;
+left: 430px;
+right: 0;
+bottom: 0;
+background-color: white;
+z-index: 2;
+cursor: pointer;
+}
+
+.check-box-color-user-name{
+  margin: 10px auto;
+}
+
+.share-container{
+    margin: 0 auto;
+    width: 641px;
+}
+
+
+.styled-checkbox {
+  position: absolute; // take it out of document flow
+  opacity: 0; // hide it
+
+  & + label {
+    position: relative;
+    cursor: pointer;
+    padding: 0;
+  }
+
+  // Box.
+  & + label:before {
+    content: '';
+    margin-right: 10px;
+    display: inline-block;
+    vertical-align: text-top;
+    width: 20px;
+    height: 20px;
+    background: lightgrey;
+  }
+
+  // Box checked
+  &:checked + label:before {
+    background: #3fbb9c;
+  }
+
+  // Disabled state label.
+  &:disabled + label {
+    color: #black;
+    cursor: auto;
+  }
+
+  // Disabled box.
+  &:disabled + label:before {
+    box-shadow: none;
+    background: #ddd;
+  }
+
+  // Checkmark. Could be replaced with an image
+  &:checked + label:after {
+    content: '';
+    position: absolute;
+    left: 5px;
+    top: 9px;
+    background: white;
+    width: 2px;
+    height: 2px;
+    box-shadow:
+      2px 0 0 white,
+      4px 0 0 white,
+      4px -2px 0 white,
+      4px -4px 0 white,
+      4px -6px 0 white,
+      4px -8px 0 white;
+    transform: rotate(45deg);
+  }
+}
+#23{
+  width: 33.3px;
+  height: 33.3px;
+}

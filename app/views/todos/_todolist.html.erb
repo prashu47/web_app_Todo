@@ -1,0 +1,20 @@
+<div class='todo_list' id="<%=todo.id%>">
+  <%= link_to todo.body,todo %>
+  <div class='icon'>
+    <%= link_to todos_change_position_path(id: todo.id ,direction:"up"), method: :post, data: {url: url_for(action: :change_position) }, class: "up", :remote => true do %>
+    <i id="up" class="material-icons">keyboard_arrow_up</i>
+  <%end%>
+  <%= link_to todos_change_position_path(id: todo.id,direction:"down"), method: :post, data: {url: url_for(action: :change_position) },class:"down",:remote => true do %>
+  <i id="down" class="material-icons">keyboard_arrow_down</i>
+<%end%>
+<%= link_to todo_path(todo), method: :delete, data: { confirm: 'Are you sure?' }, :remote => true, :class => 'delete_todo' do %>
+<i class="material-icons">clear</i>
+<%end%>
+<%= link_to todos_status_update_path(id: todo.id), method: :post, data: {url: url_for(action: :status_update) }, :remote => true do %>
+<i class="material-icons">check_circle_outline</i>
+<% end %>
+</div>
+<div class="createdtime">
+<%= todo.created_at.strftime("%l:%M%P,%d %B %Y") %>
+</div>
+</div>

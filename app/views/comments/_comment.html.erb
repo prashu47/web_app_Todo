@@ -1,0 +1,15 @@
+<div class="post_comment" >
+  <div class="comment_border">
+    <div>
+      <div class="comment_body">
+        <%= comment.body %>
+      </div>
+    </div>
+    <div class = "comment-foot">
+      <div class="commenter-name"><%= User.find(comment.user_id)[:user_name]%>
+        <div class="comment-time"> on <%= comment.created_at.strftime("%B %d %Y, %l:%M%P") %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

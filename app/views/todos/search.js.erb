@@ -1,0 +1,5 @@
+
+
+
+
+$('#todos').html(`<% @todos.each do |todo| %><%= render 'todolist' , todo: todo %><% end %>`);

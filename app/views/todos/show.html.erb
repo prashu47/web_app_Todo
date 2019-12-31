@@ -1,0 +1,138 @@
+<div class="container">
+  <div class = "search">
+    <%= text_field_tag :search , "", placeholder: "search", remote: true, class: "search"%>
+  </div>
+  <div class = "back">
+    <%=link_to "<Go back to home", root_path %>
+   </div>
+
+   <div class="todos_progress">
+     <div class="todo_block">
+       <div class = "todo_sub_block">
+         <%= @todo.body%>
+         <div class="show_crossicon">
+           <%= link_to todo_path(id: @todo.id),method: :delete,data: {confirm: "are you sure",:action => 'delete'}, :class => 'delete_todo',:remote => true do  %>
+           <div class = 'cross'>
+             <i class="material-icons arrows">clear</i>
+             <%end%>
+           </div>
+         </div>
+         <div class ="comment-time">
+           <%= @todo.created_at.strftime("%l:%M%P,%B %d %Y") %>
+         </div>
+         <div class="task_completion">
+           <p>Task completion</p>
+         </div>
+         <div class="progress">
+           <div class="progress" style="min-width: 20px">
+             <div class="progress-bar" role="progressbar" style="width: <%=@todo.task_status%>%;" aria-valuenow="<%=@todo.task_status%>" aria-valuemin="0" aria-valuemax="100"><%=@todo.task_status%>%</div>
+           </div>
+         </div>
+         <div class="check_circle>"
+           <%= link_to todos_status_update_path(id: @todo.id), data: {url: url_for(action: :status_update),method: :post},:remote => true do %>
+           <div class = "circle">
+             <i class="img-check material-icons" <%=@todo.active? ? "check" : "inactive"%>" style="color:#3fbb9c;">check_circle</i>
+             <% end %>
+           </div>
+         </div>
+
+         <div class = "shared_with">
+           <p style="color:#818484"> Shared with: <%@shared_users.each do |shares|%>
+             <span style="color:black;">
+               <%= render 'share/shareuser' ,user: shares.user_name %>
+               <%end%>
+
+             </span>
+           </p>
+         </div>
+
+         <div class="share">
+           <button type="button" class="btn btn-outline-secondary" onclick="on()" style= "background-color:white; color:#b1a5a5; border:1px solid">Share this</button>
+           <div id="overlay">
+             <div class= "share-container">
+               <div id="overlay-block">
+                 <div class= "share-container">
+                   <div class="add-people">
+                     <div class="add-people-text">
+                       <p>Add people to this task</p>
+                       <div calss="bottom-border" style= "border-bottom:1px solid;color: #f4f4f4">
+                       </div>
+                       <div id = "division">
+                       <% @user.each do |user| %>
+                       <span class= "users-list">
+                         <%= render 'share/share', :user => user %>
+                       </span>
+                         <% end %>
+                         <div class="top-border">
+                         </div>
+                         <div id="save-button" onclick="off()">
+                           <button type="button" value="Submit">Save</button>
+                         </div>
+                          <div class="cancel-button" onclick="off()" style ="float:right; margin_top:-26px;">
+                            Cancel
+                          </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div calss = "comment_render">
+        <% @comment.each do |comments| %>
+        <%= render 'comments/comment' , comment: comments %>
+        <% end %>
+        <div class = "comment_line">
+        </div>
+      </div>
+
+      <div class= "add_comment">
+        <%= render 'comments/form'%>
+      </div>
+    </div>
+<script>
+  var todo_id = <%= @todo.id %>;
+  $('.progress').click(function(event){
+  var currentProgress = $('.progress-bar').attr('aria-valuenow');
+  var xPosition = event.pageX - $(this).offset().left;
+  var width = (((($(this).children())[0])["style"])["width"]);
+  var newProgress = Math.round((xPosition/474)*100);
+  $('.progress-bar').css('width',newProgress+"%");
+  $('.progress-bar').text(newProgress+"%");
+
+  $.ajax({
+  url: "/todos/track_status",
+  type: "POST",
+  data: {id: todo_id, new_status :newProgress, old_status: currentProgress}
+
+    });
+  });
+  function on() {
+    document.getElementById("overlay").style.display = "block";
+}
+  function off() {
+    document.getElementById("overlay").style.display = "none";
+}
+
+  $("#save-button").click(function () {
+    off();
+    var users = new Array();
+    $("input[name='user-check']:checked").each(function (i) {
+      users.push($(this).attr("id"));
+    });
+
+    $.ajax({
+      url: "/share/create_share",
+      type: 'POST',
+      data: {
+        user_array: users,
+        todo_id: todo_id
+      }
+    });
+  });
+</script>
